@@ -23,6 +23,14 @@ pipeline {
                         sh  "echo docker push"
 		}
         }
+        stage('Jenkins structure'){
+            steps {
+                sh chmod +x ./scripts/test.sh"
+		sh "cd /scripts"
+		sh "ls"
+		sh "./scripts/test.sh"
+            }
+        }
     }
 
 }
