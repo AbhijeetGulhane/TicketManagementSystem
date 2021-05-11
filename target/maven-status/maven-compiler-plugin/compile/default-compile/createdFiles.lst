@@ -1,0 +1,10 @@
+com\tms\service\TmsService.class
+com\tms\repository\TmsRepositoryDepartment.class
+com\tms\entity\User.class
+com\tms\controller\TmsController.class
+com\tms\entity\Department.class
+com\tms\controller\AppController.class
+com\tms\repository\TmsRepositoryTicket.class
+com\tms\repository\TmsRepositoryUser.class
+com\tms\TicketManagementSystemApplication.class
+com\tms\entity\Ticket.class
