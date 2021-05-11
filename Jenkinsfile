@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Jenkins structure'){
             steps {
-                sh chmod +x ./scripts/test.sh"
+                sh "chmod +x ./scripts/test.sh"
 		sh "cd /scripts"
 		sh "ls"
 		sh "./scripts/test.sh"
