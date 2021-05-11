@@ -8,6 +8,8 @@ pipeline {
         stage('HelloWorld'){
             steps {
                 sh 'echo helloworld'
+                sh 'pwd'
+                sh 'ls'
             }
         }
     }
