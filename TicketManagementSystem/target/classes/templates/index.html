@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Welcome to CodeJava Home</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <!-- <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>  -->
+    <!--  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>  -->
+</head>
+<body>
+<div class="container text-center">
+	<div><h2>Ticket Management System</h2></div>
+    <br><br>
+	<div><h3>Ticket Menu</h3></div>
+	<div class="p-2">
+    	<h4><a th:href="@{/displayTickets}">List All Tickets</a></h4>
+    </div>
+    <div class="p-2">
+    	<h4><a th:href="@{/createTicket}">Create Ticket</a></h4>
+    </div>
+    <br>
+	<div><h3>User Menu</h3></div>
+    <div class="p-2">
+    	<h4><a th:href="@{/displayUsers}">List Users</a></h4>
+    </div>
+    <div class="p-2">
+    	<h4><a th:href="@{/createUsers}">Create Users</a></h4>
+    </div>
+    <br>
+	<div><h3>Department Menu</h3></div>
+    <div class="p-2">
+    	<h4><a th:href="@{/displayDepartments}">List Departments</a></h4>
+    </div>
+    <div class="p-2">
+    	<h4><a th:href="@{/createDepartments}">Create Department</a></h4>
+    </div>
+    
+     
+</div>
+</body>
+</html>
