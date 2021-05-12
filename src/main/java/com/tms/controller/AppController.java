@@ -13,6 +13,9 @@ public class AppController {
 	@Autowired
 	private TmsService service;
 
+//	@Autowired
+//	private TmsRepositoryDepartment deptrepo;
+	
 	@GetMapping("")
 	public String viewHomePage() {
 		return "index";
@@ -20,10 +23,18 @@ public class AppController {
 	
 	@GetMapping("/displayUsers")
 	public String displayUsers(Model model) {
-		model.addAttribute("ListUser", service.getDepartments());
+		model.addAttribute("ListUsers", service.getUsers());
 		
 		return "displayUsers";
-		
 	}
+	
+	@GetMapping("/displayDepartments")
+	public String displayDepartments(Model model) {
+		//List listDepartments = (List) deptrepo.findAll();
+		model.addAttribute("ListDepartments",service.getDepartments());
+		
+		return "displayDepartments";
+	}
+	
 }
 

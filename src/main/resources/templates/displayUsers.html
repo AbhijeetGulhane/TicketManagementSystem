@@ -16,20 +16,24 @@
 </head>
 <body>
 	<div class = "c">
-	<h1>Welcome to Ticket Management System</h1>
+	<h1>Ticket Management System</h1>
 	<h3><a th:href="@{/getAllUsers}">List of Users (JSON)</a></h3>
 	
 	<table border="1">
 		<thead>
 			<tr>
+				<th>Id</th>
 				<th>Name</th>
-				<!-- <th>Department</th>    -->
+				<th>Department</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="User: ${ListUser}">
+			<tr th:each="User: ${ListUsers}">
+				<td th:text="${User.uid}"></td>
 				<td th:text="${User.name}"></td>
-				<!-- <td th:text="${User.Department.department_id}"></td>  -->
+				<td th:text="${User.Department}"></td>
+				<td></td>
 			</tr>
 		</tbody>
 	</table>

@@ -117,5 +117,10 @@ public class Department implements Serializable{
 		this.sub_department = sub_department;
 	}
 
+	@Override
+	public String toString() {
+		return "Department : " + name + ", Sub Department : " + sub_department;
+	}
+
 
 }
