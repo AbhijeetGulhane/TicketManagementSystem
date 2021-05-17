@@ -4,15 +4,12 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -39,9 +36,9 @@ public class User implements Serializable{
 	@Column(nullable = false, length = 30)
 	private String password;
 
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "department_id", referencedColumnName ="deptid", insertable = true, updatable = true, nullable = false)
+	//@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) 
+	@ManyToOne//(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "department_id")//, referencedColumnName ="deptid", insertable = true, updatable = true, nullable = false)
 	private Department department;
 	
 	
@@ -57,6 +54,11 @@ public class User implements Serializable{
 //            cascade = CascadeType.ALL)
 //	private Set<Ticket> ticket_assignee;
 	
+	@Override
+	public String toString() {
+		return  name + " (" + department + ")";
+	}
+
 	public User() {
 	}
 		

@@ -34,7 +34,7 @@ public class Ticket implements Serializable{
 	@Column(nullable=false, length=500)
 	private String description;
 	
-	@Column(nullable=false, length=20)
+	@Column(length=30)
 	private String timestamp;
 
 	@Column(nullable=false)

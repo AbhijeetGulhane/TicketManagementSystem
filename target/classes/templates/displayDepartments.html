@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
-    <title>Welcome to CodeJava Home</title>
+    <title>View all departments</title>
     <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
@@ -12,20 +12,31 @@
  			margin: auto;
  			align-content: center;
 		}
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		
+		table.center {
+		  margin-left: auto; 
+		  margin-right: auto;
+		}
 </style>
 </head>
 <body>
 <div class="container text-center">
 	<div class = "c">
-	<h1>Ticket Management System</h1>
-	<h3><a th:href="@{/getAllDepartments}">List of Departments (JSON)</a></h3>
+	<h2><a th:href="@{/}">Ticket Management System</a></h2><br>
+	<!-- <h3><a th:href="@{/getAllDepartments}">List of Departments (JSON)</a></h3>  -->
 	
-	<table border="1">
+	<table border="1"  class="center">
 		<thead>
 			<tr>
 				<th>Id</th>
 				<th>Name</th>
 				<th>Sub-Department</th>
+				<th>Access level </th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,7 +44,12 @@
 				<td th:text="${Dept.deptid}"></td>
 				<td th:text="${Dept.name}"></td>
 				<td th:text="${Dept.subDepartment}"></td>
-				
+				<td th:text="${Dept.accesslevel}"></td>
+				<td>
+					<a th:href="@{'editDepartment/' + ${Dept.deptid}}">Edit</a>
+					&nbsp;
+					<a th:href="@{'deleteDepartment/' + ${Dept.deptid}}">Delete</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>

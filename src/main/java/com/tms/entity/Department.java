@@ -1,19 +1,13 @@
 package com.tms.entity;
 
 import java.io.Serializable;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
 
@@ -41,13 +35,13 @@ public class Department implements Serializable{
     @Column(nullable=false)
     private int accesslevel;
 	
-    @Column(nullable=false)
+    @Column
     private String sub_department;
 	
-	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-	@OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
-	private Set<User> users;
+//	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+//	@OneToMany(mappedBy = "department", fetch = FetchType.LAZY,
+//            cascade = CascadeType.ALL)
+//	private Set<User> users;
 	
 	
 	public Department() {	
@@ -119,7 +113,7 @@ public class Department implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Department : " + name + ", Sub Department : " + sub_department;
+		return name + " ( " + sub_department + " )";
 	}
 
 

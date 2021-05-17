@@ -24,28 +24,39 @@
 </style>
 </head>
 <body>
-	<div class = "c">
-	<h2><a th:href="@{/}">Ticket Management System</a></h2><br>
-	<!-- <h4><a th:href="@{/getAllUsers}">List of Users (JSON)</a></h4> -->
+	<div>
+	<h2 class = "c"><a th:href="@{/}">Ticket Management System</a></h2><br>
+	<!-- <h3><a th:href="@{/getAllTickets}">List of Tickets (JSON)</a></h3>  -->
 	
 	<table border="1"  class="center">
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Name</th>
-				<th>Department</th>
+				<th>tid</th>
+				<th>description</th>
+				<th>priority</th>
+				<th>solution</th>
+				<th>status</th>
+				<th>timestamp</th>
+				<th>assignee_id</th>
+				<th>user_id</th>
 				<th>Actions</th>
+			
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="user: ${ListUsers}">
-				<td th:text="${user.uid}"></td>
-				<td th:text="${user.name}"></td>
-				<td th:text="${user.Department}"></td>
+			<tr th:each="Ticket: ${ListTickets}">
+				<td th:text="${Ticket.tid}"></td>
+				<td th:text="${Ticket.description}"></td>
+				<td th:text="${Ticket.priority}"></td>
+				<td th:text="${Ticket.solution}"></td>
+				<td th:text="${Ticket.status}"></td>
+				<td th:text="${Ticket.timestamp}"></td>
+				<td th:text="${Ticket.assignee_id}"></td>
+				<td th:text="${Ticket.user_id}"></td>
 				<td>
-					<a th:href="@{'editUsers/' + ${user.uid}}">Edit</a>
+					<a th:href="@{'editTicket/' + ${Ticket.tid}}">Edit</a>
 					&nbsp;
-					<a th:href="@{'deleteUser/' + ${user.uid}}">Delete</a>
+					<a th:href="@{'deleteTicket/' + ${Ticket.tid}}">Delete</a>
 				</td>
 			</tr>
 		</tbody>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Create Ticket</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+	<style>
+		table, th, td {
+		  border: 1px solid black;
+		  border-collapse: collapse;
+		}
+		
+		table.center {
+		  margin-left: auto; 
+		  margin-right: auto;
+		}
+	</style>
+</head>
+<body onload="getDate()">
+<div class="container text-center">
+	<h2><a th:href="@{/}">Ticket Management System</a></h2>
+	<h3>Create New Ticket</h3>
+	<br>
+	
+	<form  th:action="@{/saveTicket}" th:object="${ticket}" method="post"
+		style="max-width: 600px; margin: 0 auto;">
+	<input type="hidden" th:field="*{tid}" /> 
+	<div class="m-3">
+		<div class="form-group row">
+			<label class="col-form-label col-sm-4">Description: </label>
+			<div class="col-sm-8" >
+				<input type="text" th:field="*{description}" th:value="*{description}" name="description" class="form-control" required/>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-form-label col-sm-4">Priority: </label>
+			<div class="col-sm-8" >
+				<select th:field="*{priority}" th:value="*{priority}" name="priority" id="priority">
+					<option value="low">Low</option>
+					<option value="medium">Medium</option>
+					<option value="high">High</option>
+				</select> 
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-form-label col-sm-4">Solution: </label>
+			<div class="col-sm-8" >
+				<input type="text" th:field="*{solution}" th:value="*{solution}" name="solution" class="form-control" required/>
+			</div>
+		</div>
+		
+		<div class="form-group row">
+			<label class="col-form-label col-sm-4">Status: </label>
+			<div class="col-sm-8">
+				<select th:field="*{status}" th:value="*{status}" name="status" id="status">
+					<option value="New">New</option>
+					<option value="Assigned">Assigned</option>
+					<option value="In Progress">In Progress</option>
+					<option value="Resolved">Resolved</option>
+					<option value="Closed">Closed</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="col-form-label col-sm-4">User ID: </label>
+			<div class="col-sm-8" >
+				 <select th:field="*{user_id}" th:value="*{user_id}" th:name="user_id" th:id="user_id" class="from-control">
+					 <th:block th:each="User: ${ListUsers}">
+						<option th:text="${User}" th:value="${User.uid}" />
+					</th:block>
+				 	
+				</select>
+			</div>
+		</div>
+		
+		
+		<div class="form-group row">
+			<label class="col-form-label col-sm-4">Assignee ID: </label>
+			<div class="col-sm-8" >	
+				 <select th:field="*{assignee_id}" th:value="*{assignee_id}" th:name="assignee_id" th:id="assignee_id" class="from-control">
+					 <th:block th:each="User: ${ListUsers}">
+						<option th:text="${User}" th:value="${User.uid}" />
+					</th:block>
+				 	
+				</select>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			function getDate(){
+				var months = ["January", "February", "March", "April", "May", "June",
+				  "July", "August", "September", "October", "November", "December"];
+				var n = new Date();
+				var y = n.getFullYear();
+				var m = n.getMonth();
+				var d = n.getDate();
+				var h = n.getHours();
+				var min = n.getMinutes();
+				var sec = n.getSeconds();
+				document.getElementById("date_ip").value = "" + y + "/" + m + "/" + d + ", " + h + ":" + min + ":" + sec + "";
+			}
+			getDate();
+		</script>
+		
+		<div class="form-group row">
+			<label class="col-form-label col-sm-4">Date: </label>
+			<div class="col-sm-8" >
+				<input type="text" id="date_ip">
+			</div>
+		</div>
+		
+		<div class="text-center p-3">
+			<button type="submit" class="btn btn-primary">Save</button>
+		</div>
+	</div>
+	</form>
+
+
+</div>
+</body>
+</html>
